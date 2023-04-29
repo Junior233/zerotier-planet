@@ -2,20 +2,21 @@
 ### author: www.mrdoc.fun | jonnyan404
 ### 转载请保留来源
 ### update：2022年08月14日
-version: '2.0'
+version: '3.1'
 services:
     ztncui:
         container_name: ztncui
         restart: always
         environment:
             - MYADDR=1.1.1.1 #改成自己的服务器公网IP
-            - HTTP_PORT=4000
+            - ZPORT=9998
+            - HTTP_PORT=3443
             - HTTP_ALL_INTERFACES=yes
-            - ZTNCUI_PASSWD=mrdoc.fun
+            - ZTNCUI_PASSWD=xxxx
         ports:
-            - '4000:4000' # web控制台入口
-            - '9993:9993'
-            - '9993:9993/udp'
+            - '3443:3443' # web控制台入口
+            - '9998:9993'
+            - '9998:9993/udp'
             - '3180:3180' # planet/moon文件在线下载入口，如不对外提供。可防火墙禁用此端口。
         volumes:
             - './zerotier-one:/var/lib/zerotier-one'
